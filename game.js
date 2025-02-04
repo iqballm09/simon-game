@@ -52,6 +52,7 @@ const animatePress = (currentColor) => {
 const nextSequence = () => {
   randomNumber = Math.floor(Math.random() * 4);
   randomChosenColor = buttonColours[randomNumber];
+  $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
   animatePress(randomChosenColor);
   gamePattern.push(randomChosenColor);
   level++;
@@ -65,8 +66,6 @@ const playAudio = (color) => {
   audio = new Audio(`./sounds/${color}.mp3`);
   audio.play();
 };
-
-$(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
 
 $(".btn").on("click", (e) => {
   let userChosenColor = e.target.id;
